@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Invitación</title>
+
+<style>
+body {
+  margin: 0;
+  background: #f5f0eb;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+  width: 300px;
+}
+
+.container img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+/* CONTADOR */
+#countdown {
+  position: absolute;
+  top: 880px; /* AJUSTA */
+  width: 100%;
+  text-align: center;
+  font-family: 'Georgia', serif;
+  color: #a67c52;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+  
+  <!-- IMAGEN -->
+  <img src="https://drive.google.com/uc?export=view&id=1e0BRpittmn6yldp8kikn9hxEGfxERbq">
+
+  <!-- CONTADOR -->
+  <div id="countdown"></div>
+
+  <!-- BOTÓN INVISIBLE UBICACIÓN -->
+  <a href="https://maps.app.goo.gl/FT7mFgKbXzcSF8Wh7" target="_blank"
+     style="
+     position:absolute;
+     top: 1220px; /* AJUSTA */
+     left: 50%;
+     transform: translateX(-50%);
+     width: 140px;
+     height: 40px;
+     ">
+  </a>
+
+  <!-- BOTÓN INVISIBLE PARA MÚSICA (ICONO PLAY) -->
+  <div onclick="document.getElementById('audio').play()"
+       style="
+       position:absolute;
+       top: 1050px; /* AJUSTA */
+       left: 50%;
+       transform: translateX(-50%);
+       width: 80px;
+       height: 80px;
+       cursor: pointer;
+       ">
+  </div>
+
+</div>
+
+<!-- AUDIO -->
+<audio id="audio">
+  <source src="https://drive.google.com/uc?export=download&id=1YnZBuwtTCctVF8OwrwXvhk_1q3jaQ0yH" type="audio/mpeg">
+</audio>
+
+<!-- SCRIPT CONTADOR -->
+<script>
+var countDownDate = new Date("Jul 25, 2026 18:30:00").getTime();
+
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+  document.getElementById("countdown").innerHTML =
+    days + " DÍAS " + hours + " HRS " + minutes + " MIN";
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "¡ES HOY!";
+  }
+}, 1000);
+</script>
+
+</body>
+</html>
